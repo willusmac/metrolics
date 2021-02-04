@@ -15,7 +15,8 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
@@ -25,17 +26,25 @@
 <body class="page page-home">
     <header class="page-header">
         <div class="row m-1-2">
+            <nav class="mobile-nav m-hide l-hide">
+                mobile menu
+            </nav>
             <div class="column">
-                <p>logo here</p>
+                <img class="logo" src="img/2.jpg">
             </div>
-            <div class="column">
-                <p>menu here</p>
-            </div>
+
+            <nav class="column main-nav">
+                <a href="#" class="main-nav-item active">Home</a>
+                <a href="#" class="main-nav-item">Pages</a>
+                <a href="#" class="main-nav-item">Blog</a>
+                <a href="#" class="main-nav-item">Portfolio</a>
+                <a href="#" class="main-nav-item">Contact</a>
+            </nav>
         </div>
 
     </header>
 
-    <div class="page-slider">
+    <div class="page-slider s-hide">
         <div class="row">
             <div class="column">
                 <img src="img/2.jpg" alt="slider">

@@ -34,20 +34,44 @@ h1 {
 
 /*layout*/
 div, footer, header {
-    border: 1px solid #222;
+    /*border: 1px solid #222; styling guidelines*/
+}
+
+.row {
+  display:grid;
+  row-gap: 1rem;
+  margin: 0 1rem 3rem 1rem;
 }
 .column {
-    background-color: lightblue;
-    margin: 1rem;
+  position: relative;
+    /*background-color: lightblue;*/
+    /*margin: 1rem;  styling guidelines*/
 }
 .heading {
-    text-align: center;
+  font-family: Ubuntu;
+  font-weight: 400;
+  text-align: center;
+}
+.tagline {
+  margin-top: -0.8rem;
+  font-size: 0.7rem;
+  text-align: center;
+  color: rgba(128, 128, 128)
+}
+
+.logo {
+  max-height: 2.5rem;
+  position:absolute;
+  bottom:0;
 }
 
 /*theme*/
 
 .page-slider {
     background-color:lightgrey;
+}
+.page-slider img {
+  height: 25vh;
 }
 
 .page-footer {
@@ -56,17 +80,105 @@ div, footer, header {
 
 
 
+/*Main nav mobile first */
+.main-nav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-nav-item{
+  display:block;
+  position:relative;
+  width: 100%;
+  padding: 1rem 1rem 1rem 100%;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-align: left;
+  color:white;
+  line-height:4rem;
+  background-repeat: no-repeat;
+  background-position-x: 44%;
+  background-position-y: center;
+  background-size: 3.1rem, 1.7rem;
+}
+
+.main-nav-item::after{
+  content:">";
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+}
+
+.main-nav-item.active::after{
+  content:"";
+}
+
+/*main nav colours and icons*/
+.main-nav-item:nth-child(1){
+  background-color: #25c389;
+  background-image: url();
+}
+.main-nav-item:nth-child(2){
+  background-color: #ffb981;
+  background-image: url();
+}
+.main-nav-item:nth-child(3){
+  background-color: #de6262;
+  background-image: url();
+}
+.main-nav-item:nth-child(4){
+  background-color: #1691bd;
+  background-image: url();
+}
+.main-nav-item:nth-child(5){
+  background-color: #166ba2;
+  background-image: url();
+}
+
+
 /*Smallonly*/
-@media screen and (max-width:39.9375em){}
+@media screen and (max-width:39.9375em){
+  .logo {
+    max-height: 3rem;
+    position: static;
+  }
+  .s-hide {
+    display:none;
+  }
+  .s-show {
+    display:flex;
+  }
+  .mobile-nav{
+    background-image: url(https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/menu-512.png);
+    background-repeat: no-repeat;
+    background-size: 1.8rem;
+    background-position: center center;
+    background-color: #2a6eeb;
+    position:absolute;
+    right: 1rem;
+    top: 0rem;
+    z-index: 1;
+    font-size: 0rem;
+    padding: 1.5rem;
+  }
+  .main-nav-item::after{
+    display: inline-block;
+    position: static;
+    padding-left: 1rem;
+  }
+}
 
 /*Mediumandup*/
 
 @media screen and (min-width:40em){
     .row {
-        display: grid;
         width: 85vw;
         max-width: 70rem;
         margin: 0 auto;
+        column-gap: 1.5rem;
+        row-gap: 1.5rem;
+        margin: 0 auto 3rem auto;
     }
     .m-col-2 {
         grid-template-columns: 1fr 1fr;
@@ -87,6 +199,22 @@ div, footer, header {
         grid-column-start: 1;
         grid-column-end: -1;
     }
+    .main-nav {
+      display: flex;
+      flex-direction: row;
+    }
+    .main-nav-item {
+      padding: 4rem 1rem 0rem 0.5rem;
+      line-height: 2rem;
+      font-size: 0.8rem;
+      text-align: left;
+      background-color: rgba(184, 184, 184);
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: center;
+      background-size: 2.3rem, 1.4rem;
+    }
+
 }
 
 /*Mediumonly*/
@@ -94,7 +222,10 @@ div, footer, header {
 @media screen and (min-width:40em)and(max-width:63.9375em){
     .special-project {
         grid-column-start: 1;
-        grid-column-end: -1;
+        grid-column-end: -1; /*possibly take this out later*/
+    }
+    .m-hide {
+      display: none;
     }
 }
 
@@ -116,11 +247,16 @@ div, footer, header {
     .l-col-5 {
         grid-template-columns: repeat(6, 1fr);
     }
+    .l-hide {
+      display:none;
+    }
 }
 
 /*Largeonly*/
 
-@media screen and (min-width:64em)and(max-width:74.9375em){}
+@media screen and (min-width:64em)and(max-width:74.9375em){
+
+}
 
 /*modules*/
 
@@ -370,5 +506,4 @@ div, footer, header {
       page-break-after: avoid;
     }
   }
-  
   
